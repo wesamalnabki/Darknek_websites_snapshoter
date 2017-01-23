@@ -4,7 +4,7 @@ This project was token from a thread on Stackoverflow (http://stackoverflow.com/
 I adapted it to work over a list of darknet website and be able to access via a proxt.
 I have the code in .py and .ipynb.
 
-To use it, you should: 
+## To use it, you should: 
     '''
         Requirements:
         Install NodeJS
@@ -14,7 +14,7 @@ To use it, you should:
         add phantomjs to system path (on windows)
     '''
     
- Important note:
+ ## Important note:
  In order to use the code, you should install TOR browser on your system. 
  For Debien 8:
  
