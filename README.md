@@ -14,7 +14,7 @@ I have the code in .py and .ipynb.
         add phantomjs to system path (on windows)
     '''
     
- ## Important note:
+ ### Important note:
  
  In order to use the code, you should install TOR browser on your system. 
  For Debien 8:
