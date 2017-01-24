@@ -137,6 +137,8 @@ if __name__ == '__main__':
         # Create a folder for each domain:
         if not os.path.exists(save_path):
             os.mkdir(save_path)
+        else:
+            continue
         
         # Adjust the URL by adding http://
         full_url = 'http://www.' + url
