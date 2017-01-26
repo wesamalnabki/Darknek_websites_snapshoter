@@ -7,6 +7,8 @@ import socket
 
 from urllib.parse import urlparse, ParseResult
 
+import signal
+
 ROOT = '/home/wesam/datasets/Snapshot_Result_23_01_2017/'
 white_list_dir = '/home/wesam/Codes/ScrapeDeepWeb/white_list.txt'
 abspath = lambda *p: os.path.abspath(os.path.join(*p))
@@ -35,6 +37,14 @@ def do_screen_capturing(url, screen_path, width, height):
         driver.set_window_size(width, height)
     driver.get(url)
     driver.save_screenshot(screen_path)
+    
+    # Starting from 2016, the PhantomJS process can NOT be killed with quit() or close. 
+    # Then, we must send a SIGTERM signal to stop it. 
+    # Otherwise, the server will be down! 
+    # Python/Linux quit() does not terminate PhantomJS process
+    # https://github.com/seleniumhq/selenium/issues/767
+    driver.service.process.send_signal(signal.SIGTERM)
+    driver.quit()
 
 
 def do_crop(params):
@@ -132,6 +142,9 @@ if __name__ == '__main__':
     #sites_list = ['bo4lbe6xavxbntrv.onion', 'mzmxmkivtasbzhjo.onion']
     
     for url in sites_list:
+    
+        print ('Processing', url)
+        
         save_path = ROOT+'/'+ url
         
         # Create a folder for each domain:
