@@ -20,7 +20,6 @@ def execute_command(command):
 
 
 def do_screen_capturing(url, screen_path, width, height):
-    print ('processing {0}'.format(url))
     print ("Capturing screen..")
     
     service_args = [
